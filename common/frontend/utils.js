@@ -61,10 +61,8 @@ export function logout() {
 }
 
 export function login() {
-  window.walletConnection.requestSignIn(
-    // The contract name that would be authorized to be called by the user's account.
-    nearConfig.contractName,
-    // This is the app name. It can be anything.
-    'Welcome to NEAR'
-  )
+  // This will add an access key to the user's account, with a private key
+  // stored in the current app's local storage, permitting this frontend app
+  // to make requests to the given smart contract on the user's behalf
+  window.walletConnection.requestSignIn(nearConfig.contractName)
 }
